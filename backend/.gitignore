@@ -1,5 +1,8 @@
 .env
 *.db
+*.log
 __pycache__/
 *.py[cod]
 .venv/
+.python/
+.uv-cache/
