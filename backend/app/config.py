@@ -8,7 +8,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     app_name: str = "NyayaAI API"
     database_url: str = "sqlite:///./nyayaai.db"
-    cors_origins: str = "http://localhost:5173"
+    cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
     indian_kanoon_base_url: str = "https://api.indiankanoon.org"
     indian_kanoon_timeout_seconds: float = 20.0
     llm_api_base_url: str | None = None
