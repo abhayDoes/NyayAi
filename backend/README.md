@@ -18,6 +18,16 @@ backend; each search page and opened document causes an API request. Add clear
 "powered by IKanoon" attribution in the user interface before displaying data,
 as required by Indian Kanoon's terms.
 
+## Case description analysis
+
+`POST /api/research/analyze` accepts a case description and returns a validated
+category, facts, legal issues, legal terminology, and search phrases. It sends
+the description to the configured chat-completions-compatible LLM. The backend
+does not save the description. Analysis is unavailable until `LLM_API_BASE_URL`,
+`LLM_API_KEY`, and `LLM_MODEL` are configured in the backend environment. The
+prompt asks the model to extract research inputs only; it does not determine
+the merits or assert the current state of Indian law.
+
 ## Run locally
 
 From this directory, create and activate a virtual environment, install

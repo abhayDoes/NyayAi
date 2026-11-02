@@ -12,6 +12,7 @@ from app.config import get_settings
 from app.database import Base, engine
 from app.routers.health import router as health_router
 from app.routers.judgments import router as judgments_router
+from app.routers.research import router as research_router
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -35,6 +36,7 @@ app.add_middleware(
 )
 app.include_router(health_router, prefix="/api")
 app.include_router(judgments_router)
+app.include_router(research_router)
 
 
 @app.exception_handler(Exception)

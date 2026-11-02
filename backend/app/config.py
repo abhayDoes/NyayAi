@@ -11,6 +11,10 @@ class Settings(BaseSettings):
     cors_origins: str = "http://localhost:5173"
     indian_kanoon_base_url: str = "https://api.indiankanoon.org"
     indian_kanoon_timeout_seconds: float = 20.0
+    llm_api_base_url: str | None = None
+    llm_api_key: str | None = None
+    llm_model: str | None = None
+    llm_timeout_seconds: float = 45.0
 
     # Provider credentials are intentionally optional until those integrations
     # are implemented. They must never be shipped to the browser.

@@ -1,7 +1,9 @@
-"""Schemas for a lawyer's case description."""
+"""Request schema for a lawyer's case description."""
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
-class CaseDescription(BaseModel):
+class CaseAnalysisRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
     description: str = Field(min_length=20, max_length=20_000)
