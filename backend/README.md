@@ -28,6 +28,18 @@ does not save the description. Analysis is unavailable until `LLM_API_BASE_URL`,
 prompt asks the model to extract research inputs only; it does not determine
 the merits or assert the current state of Indian law.
 
+## Keyword retrieval
+
+`POST /api/research/retrieve` accepts editable facts, legal issues, search
+queries, and optional court/date filters. It searches each query sequentially,
+deduplicates document IDs, fetches full text for at most five judgments, splits
+text into overlapping passages, and ranks passages using visible lexical
+overlap. Scores are keyword overlap only, not legal relevance or authority.
+Each result retains its Indian Kanoon document ID and source URL. The bounded
+defaults cap a run at five search requests and five document requests, but each
+request can still incur an API charge. Semantic embeddings are deferred until live
+retrieval quality and data permissions have been checked.
+
 ## Run locally
 
 From this directory, create and activate a virtual environment, install
